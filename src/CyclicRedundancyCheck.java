@@ -37,7 +37,8 @@ public class CyclicRedundancyCheck {
         }
         // We initially appended (length of divisor-1) 0's at the end. Now our CRC remainder will be of
         // the same length & it has updated the values of those 0's
-        // We just need to append that remainder to our message
+        // Hence it woulr start from (m-1)th posiiton from behind : n-(m-1) = n-m+1
+        // We just need to append that remainder
         String output=message;
         for(int i=n-m+1;i<n;i++){
             output+=Integer.toString((dataArr[i]));
