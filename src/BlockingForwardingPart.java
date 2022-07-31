@@ -9,7 +9,9 @@ public class BlockingForwardingPart {
 
     public static void MST(int[][] graph){
         int vertices=graph.length;
-        // Weight array to keep trach of edge lengths
+        // Weight array to keep track of edge lengths
+        // Bssically the edge lengths from vertex u to v, will be stored in weight array at index v
+        // It helps in comparing
         int[] weight=new int[vertices];
         Arrays.fill(weight,Integer.MAX_VALUE);
         weight[0]=0;
@@ -27,9 +29,13 @@ public class BlockingForwardingPart {
             // We get the minimum vertex and we just fill its adjacent's weight in the weight array
             // Our minVertex() function will choose the minimum from this weight array
             for(int j=0;j<vertices;j++){
+                // Firstly we check if edge even exists from u to v
+                // Secondly we check if the adjacent is already in MST set or not
+                // Thirdly if the edge length is smaller than alreeady sotred value, it means its time to
+                // update
                 if(graph[min][j]!=0 && !MST[j] && graph[min][j]<weight[j]){
                     weight[j]=graph[min][j];
-                    parent[j]=min;
+                    parent[j]=min; // edge length of v from u is updated, so now u will be parent of v
                 }
             }
         }
