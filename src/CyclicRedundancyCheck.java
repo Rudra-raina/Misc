@@ -41,7 +41,7 @@ public class CyclicRedundancyCheck {
         // We just need to append that remainder
         String output=message;
         for(int i=n-m+1;i<n;i++){
-            output+=Integer.toString((dataArr[i]));
+            output+=dataArr[i];
         }
         System.out.println(output);
     }

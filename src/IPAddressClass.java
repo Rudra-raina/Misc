@@ -20,6 +20,7 @@ public class IPAddressClass {
             if(str.charAt(i)=='.'){
                 decimal=true; // Decimal type IP
                 decimal(str);
+                break;
             }
         }
         if(!decimal){  // This means IP is not of the type decimal, hence it has to be binary
